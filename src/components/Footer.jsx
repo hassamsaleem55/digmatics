@@ -18,7 +18,7 @@ function Footer(props) {
                       />
                     </a>
                   </div> */}
-                  <h2 style={{ color: "white" }}>Digmatics</h2>
+                  <h2 style={{ color: "white" }}>Digmatic</h2>
                   <p>
                     We’re nuts about improving your business so we ensure that
                     we track results from day one. Sure, we come up with great
@@ -118,7 +118,7 @@ function Footer(props) {
               </div> */}
           {/* <div className="col-md-6 col-xs-12"> */}
           <div className="copy-right text-center">
-            © 2025 Digmatics. All rights reserved
+            © 2025 Digmatic. All rights reserved
           </div>
           {/* </div> */}
           {/* </div> */}

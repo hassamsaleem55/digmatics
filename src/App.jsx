@@ -47,7 +47,7 @@ function App() {
         <Services />
         <Team />
         <Work />
-        <Pricing />
+        {/* <Pricing /> */}
         <ContactUs />
         <Footer isScrolled={isScrolled} />
       </div>

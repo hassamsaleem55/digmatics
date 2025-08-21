@@ -1,10 +1,20 @@
 import { Link } from "react-scroll";
 
-function Navbar(props) {
+const navItems = [
+  { id: "home", title: "Home" },
+  { id: "about", title: "About" },
+  { id: "service", title: "Services" },
+  { id: "team", title: "Team" },
+  { id: "work", title: "Work" },
+  { id: "pricing", title: "Pricing" },
+  { id: "contact", title: "Contact Us" },
+];
+
+function Navbar({ activeSection, isScrolled }) {
   return (
     <nav
       className={`navbar-scrollspy navbar navbar-default navbar-fixed white bootsnav on no-full ${
-        props.isScrolled ? "" : "navbar-transparent"
+        isScrolled ? "" : "navbar-transparent"
       }`}
       data-minus-value-desktop={70}
       data-minus-value-mobile={55}
@@ -34,7 +44,7 @@ function Navbar(props) {
             <i className="fa fa-bars" />
           </button>
           <div className="logo nav-link">
-            <Link to="home" smooth={true} duration={500}>
+            <Link to="home" smooth duration={500}>
               <img
                 className="logo logo-display"
                 src="assets/images/logo-white.png"
@@ -57,83 +67,17 @@ function Navbar(props) {
             className="nav navbar-nav navbar-right nav-scrollspy-onepage"
             data-in="fadeInLeft"
           >
-            <li
-              className={
-                props.activeSection === "home"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="home" smooth={true} duration={500}>
-                Home
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "about"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="about" smooth={true} duration={500}>
-                About
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "service"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="service" smooth={true} duration={500}>
-                Services
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "team"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="team" smooth={true} duration={500}>
-                Team
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "work"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="work" smooth={true} duration={500}>
-                Work
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "pricing"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="pricing" smooth={true} duration={500}>
-                Pricing
-              </Link>
-            </li>
-            <li
-              className={
-                props.activeSection === "contact"
-                  ? "nav-link scroll active"
-                  : "nav-link scroll"
-              }
-            >
-              <Link to="contact" smooth={true} duration={500}>
-                Contact Us
-              </Link>
-            </li>
+            {navItems.map(({ id, title }) => {
+              const baseClass = "nav-link scroll";
+              const isActive = activeSection === id ? " active" : "";
+              return (
+                <li key={id} className={`${baseClass}${isActive}`}>
+                  <Link to={id} smooth duration={500}>
+                    {title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
